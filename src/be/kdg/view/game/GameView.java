@@ -24,7 +24,7 @@ import java.util.Random;
  * Sami Filjak
  * 10/02/2023
  */
-public class GameView extends HBox {
+public class GameView extends BorderPane {
     private Spel model;
     private Image achtergrond;
     private HashMap<ImageView, Integer> kaartMap;
@@ -154,8 +154,9 @@ public class GameView extends HBox {
         updateScoreboard(model.getPlayers());
         vBox.getChildren().addAll(gametimer.getTimerTekst(), currentPlayerLabel,diceImage, rollButton);
         getChildren().addAll(scoreboardPanel,gridPane,vBox);
-
-//        getChildren().addAll(gridPane,scoreboardPanel,vBox);
+        setCenter(gridPane);
+        setLeft(scoreboardPanel);
+        setRight(vBox);
     }
 
     public HashMap<ImageView, Integer> getKaartMap() {
