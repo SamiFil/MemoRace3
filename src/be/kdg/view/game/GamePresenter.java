@@ -31,6 +31,7 @@ public class GamePresenter {
     }
     public void addEventHandlers() {
         gameView.updateScoreboard(model.getPlayers());
+        gameView.setCurrentPlayerLabel(model.getCurrentPlayer().getNaam());
         gameView.getRollButton().setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {

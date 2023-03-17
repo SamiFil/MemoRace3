@@ -6,6 +6,7 @@ import be.kdg.model.player.Player;
 import be.kdg.view.start.StartPresenter;
 import be.kdg.view.start.StartView;
 import javafx.event.ActionEvent;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -42,6 +43,7 @@ public class GameView extends HBox {
     private StartView startView;
     private GameTimer gametimer;
     private Label currentPlayerLabel;
+    private GridPane outerGridPane;
 
 
 
@@ -69,6 +71,7 @@ public class GameView extends HBox {
         currentPlayerLabel = new Label();
         gridPane = new GridPane();
         vBox = new VBox();
+        outerGridPane = new GridPane();
     }
 
     public void updateScoreboard(ArrayList<Player> players) {
@@ -141,13 +144,18 @@ public class GameView extends HBox {
                 kolom = 0;
             }
         }
+        gridPane.setHgap(10);
+        gridPane.setVgap(10);
+        gridPane.setAlignment(Pos.CENTER);
         diceImage.setFitHeight(200);
         diceImage.setFitWidth(200);
         rollButton.setMnemonicParsing(false);
         rollButton.setPrefSize(50, 30);
         updateScoreboard(model.getPlayers());
         vBox.getChildren().addAll(gametimer.getTimerTekst(), currentPlayerLabel,diceImage, rollButton);
-        getChildren().addAll(gridPane,scoreboardPanel,vBox);
+        getChildren().addAll(scoreboardPanel,gridPane,vBox);
+
+//        getChildren().addAll(gridPane,scoreboardPanel,vBox);
     }
 
     public HashMap<ImageView, Integer> getKaartMap() {
