@@ -22,8 +22,7 @@ public class Speelveld {
         Card lakers = new Card("LA Lakers", "cards/7.png");
         Card heat = new Card("Miami Heat", "cards/8.png");
 
-
-        Card[] kaarten = {boston, boston, nets, nets, bulls, bulls, cavs, cavs, warriors, warriors, rockets, rockets, lakers, lakers, heat, heat};
+        Card[] kaarten = {boston, nets, bulls, cavs, warriors, rockets, lakers, heat, boston, nets, bulls, cavs, warriors, rockets, lakers, heat};
 
 
         for (int i = 0; i < 16; i++) {

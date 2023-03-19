@@ -14,7 +14,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -114,8 +113,8 @@ public class GameView extends HBox {
             public void run() {
                 try {
                     for (int i = 0; i < 15; i++) {
-                        File file = new File((random.nextInt(6) + 1) + ".jpg");
-                        diceImage.setImage(new Image(file.toURI().toString()));
+                        ImageView imageView = new ImageView("dice/" + (random.nextInt(6)+1) + ".jpg");
+                                diceImage.setImage(imageView.getImage());
                         Thread.sleep(50);
                     }
                     rollButton.setDisable(false);
