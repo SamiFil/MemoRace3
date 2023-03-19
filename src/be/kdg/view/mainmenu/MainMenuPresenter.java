@@ -1,11 +1,6 @@
 package be.kdg.view.mainmenu;
-
-import be.kdg.view.game.GamePresenter;
-import be.kdg.view.game.GameView;
 import be.kdg.view.highscore.HighScorePresenter;
 import be.kdg.view.highscore.HighScoreView;
-import be.kdg.view.settings.SettingsPresenter;
-import be.kdg.view.settings.SettingsView;
 import be.kdg.view.start.StartPresenter;
 import be.kdg.view.start.StartView;
 import javafx.event.ActionEvent;
@@ -28,15 +23,6 @@ public class MainMenuPresenter {
     }
 
     private void addEventHandlers() {
-        mainMenuView.getSettings().setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                SettingsView settingsView = new SettingsView();
-                SettingsPresenter settingsPresenter = new SettingsPresenter(settingsView);
-                mainMenuView.getScene().setRoot(settingsView);
-
-            }
-        });
         mainMenuView.getStart().setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {

@@ -12,7 +12,6 @@ import javafx.scene.text.Font;
  */
 public class MainMenuView extends VBox {
     private Button start;
-    private Button settings;
     private Button HighScore;
     private Label MemoryGame;
     private Label MadeBy;
@@ -27,7 +26,6 @@ public class MainMenuView extends VBox {
 
     private void initialiseNodes() {
         start = new Button("Start");
-        settings = new Button("Settings");
         MemoryGame = new Label();
         MadeBy = new Label();
         Sami = new Label();
@@ -40,10 +38,6 @@ public class MainMenuView extends VBox {
         return start;
     }
 
-    public Button getSettings() {
-        return settings;
-    }
-
     public Button getHighScore() {
         return HighScore;
     }
@@ -51,7 +45,6 @@ public class MainMenuView extends VBox {
     private void layoutNodes() {
         setSpacing(10);
         start.setPrefSize(160, 40);
-        settings.setPrefSize(160, 40);
         MemoryGame.setFont(Font.font("Verdana", 31));
         MemoryGame.setText("MEMORACE");
         MadeBy.setFont(Font.font("Verdana", 15));
@@ -62,6 +55,6 @@ public class MainMenuView extends VBox {
         Haron.setText("Haron Badaoui");
         HighScore.setPrefSize(160,40);
         setAlignment(Pos.CENTER);
-        getChildren().addAll(MemoryGame, MadeBy, Sami, Haron, start, HighScore, settings);
+        getChildren().addAll(MemoryGame, MadeBy, Sami, Haron, start, HighScore);
     }
 }
