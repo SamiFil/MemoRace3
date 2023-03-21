@@ -1,8 +1,12 @@
 package be.kdg.view.highscore;
+import be.kdg.model.player.HighScore;
+import be.kdg.model.player.Score;
 import be.kdg.view.mainmenu.MainMenuPresenter;
 import be.kdg.view.mainmenu.MainMenuView;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+
+import java.util.List;
 
 /**
  * Sami Filjak
@@ -10,6 +14,7 @@ import javafx.event.EventHandler;
  */
 public class HighScorePresenter {
     private HighScoreView highScoreView;
+
 
     public HighScorePresenter(HighScoreView highScoreView) {
         this.highScoreView = highScoreView;

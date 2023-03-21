@@ -1,6 +1,9 @@
 package be.kdg.view.game;
 
 import be.kdg.model.board.Spel;
+import be.kdg.model.player.HighScore;
+import be.kdg.view.highscore.HighScorePresenter;
+import be.kdg.view.highscore.HighScoreView;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -21,6 +24,9 @@ import java.util.Optional;
 public class GamePresenter {
     private GameView gameView;
     private Spel model;
+    private HighScoreView highScoreView;
+    private HighScorePresenter highScorePresenter;
+    private HighScore highScore;
 
     private Boolean disableKeys = false;
 
