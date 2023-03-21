@@ -31,7 +31,6 @@ public class GamePresenter {
     private HighScore highScore;
     private Random random = new Random();
     private AudioClip punt;
-
     private Boolean disableKeys = false;
 
     public GamePresenter(Spel model, GameView gameView) {
@@ -66,6 +65,8 @@ public class GamePresenter {
                                 model.setKeuze2(gameView.getKaartMap().get(currentImage) + 1);
                                 if (!model.paarGevonden()) {
                                     gameView.getGametimer().getGeluid().stop();
+                                    punt = new AudioClip(this.getClass().getResource("/fail" + (random.nextInt(4)+1) + ".wav").toString());
+                                    punt.play();
                                     model.switchPlayer();
                                     Platform.runLater(() -> {
                                         gameView.setCurrentPlayerLabel(model.getCurrentPlayer().getNaam());
@@ -88,7 +89,7 @@ public class GamePresenter {
                                     disableKeys = false;
                                 } else {
                                     gameView.getGametimer().getGeluid().stop();
-                                    punt = new AudioClip(this.getClass().getResource("gewonnensound/" + (random.nextInt(7)+1) + ".mp3").toString());
+                                   punt = new AudioClip(this.getClass().getResource("/" + (random.nextInt(7)+1) + ".wav").toString());
                                     punt.play();
                                     gameView.getGridPane().setDisable(true);
                                     disableKeys = true;

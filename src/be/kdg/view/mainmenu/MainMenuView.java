@@ -20,6 +20,7 @@ public class MainMenuView extends VBox {
     private Button exit;
     private Image memory;
     private VBox vBox;
+    private Font font;
 
     public MainMenuView() {
         this.initialiseNodes();
@@ -33,6 +34,7 @@ public class MainMenuView extends VBox {
         exit = new Button("Exit");
         memory = new Image("memorace_logo.png");
         vBox = new VBox();
+        font = Font.loadFont(getClass().getResource("/LuckiestGuy-Regular.ttf").toExternalForm(), 15);
     }
 
     public Button getStart() {
@@ -56,13 +58,12 @@ public class MainMenuView extends VBox {
         imageView.setFitWidth(800);
         imageView.setFitHeight(520);
         setSpacing(10);
-//        start.setPrefSize(160, 40);
-        start.getStyleClass().add("button");
-//        highScore.setPrefSize(160,40);
+        start.setId("button");
         highScore.getStyleClass().add("button");
-//        exit.setPrefSize(160,40);
+        highScore.setId("button");
         vBox.setSpacing(10);
         exit.getStyleClass().add("button");
+        exit.setId("button");
         setAlignment(Pos.TOP_CENTER);
         getChildren().add(imageView);
         vBox.getStyleClass().add("btn-group");

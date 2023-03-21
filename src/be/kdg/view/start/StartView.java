@@ -53,8 +53,8 @@ public class StartView extends VBox {
         imageView.setFitWidth(800);
         imageView.setFitHeight(520);
         getChildren().add(imageView);
-        addPlayers.setPrefSize(150, 50);
-        start.setPrefSize(150,50);
+        addPlayers.setId("button2");
+        start.setId("button2");
         hBox.setAlignment(Pos.CENTER);
         hBox.getChildren().addAll(addPlayers, start);
         setAlignment(Pos.TOP_CENTER);

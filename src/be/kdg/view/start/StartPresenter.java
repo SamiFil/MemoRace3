@@ -80,7 +80,9 @@ public class StartPresenter {
                 for (int i = 0; i < aantalPlayers; i++) {
                     HBox hBox = new HBox();
                     TextField textField = new TextField();
+                    textField.setId("textField");
                     ComboBox<String> avatarComboBox = new ComboBox<>(FXCollections.observableList(avatarNames));
+                    avatarComboBox.setId("comboBox");
                     textField.setMaxWidth(150);
                     textField.setPromptText("Player " + (i + 1));
                     hBox.getChildren().addAll(textField, avatarComboBox);
@@ -129,10 +131,10 @@ public class StartPresenter {
                         GameView gameView = new GameView(model);
                         GamePresenter gamePresenter = new GamePresenter(model, gameView);
                         Stage gameStage = new Stage();
-//                        Scene gameScene = new Scene(gameView, 1920, 1080);
-                        Scene gameScene = new Scene(gameView, 800, 600);
+                        Scene gameScene = new Scene(gameView, 1920, 1080);
+//                        Scene gameScene = new Scene(gameView, 800, 600);
                         gameStage.setScene(gameScene);
-//                        gameStage.setFullScreen(true);
+                        gameStage.setFullScreen(true);
                         gameView.getScene().getWindow().sizeToScene();
                         gameView.getScene().getWindow().centerOnScreen();
                         gameScene.setRoot(gameView);
