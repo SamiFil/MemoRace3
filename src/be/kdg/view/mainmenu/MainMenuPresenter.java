@@ -3,6 +3,7 @@ import be.kdg.view.highscore.HighScorePresenter;
 import be.kdg.view.highscore.HighScoreView;
 import be.kdg.view.start.StartPresenter;
 import be.kdg.view.start.StartView;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
@@ -40,6 +41,12 @@ public class MainMenuPresenter {
                 HighScorePresenter highScorePresenter = new HighScorePresenter(highScoreView);
                 mainMenuView.getScene().setRoot(highScoreView);
 
+            }
+        });
+        mainMenuView.getExit().setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                Platform.exit();
             }
         });
     }

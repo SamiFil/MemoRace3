@@ -17,8 +17,9 @@ public class Main extends Application {
         MainMenuPresenter mainmenupresenter = new MainMenuPresenter(mainmenuview);
         Scene scene = new Scene(mainmenuview);
         primaryStage.setScene(scene);
-        primaryStage.setHeight(476);
-        primaryStage.setWidth(400);
+        primaryStage.setHeight(1920);
+        primaryStage.setWidth(1980);
+        primaryStage.setFullScreen(true);
         primaryStage.setTitle("Memory Game");
         primaryStage.show();
     }

@@ -8,6 +8,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
@@ -83,6 +84,7 @@ public class StartPresenter {
                     textField.setMaxWidth(150);
                     textField.setPromptText("Player " + (i + 1));
                     hBox.getChildren().addAll(textField, avatarComboBox);
+                    hBox.setAlignment(Pos.CENTER);
                     startView.getChildren().add(hBox);
                     avatarComboBox.getSelectionModel().selectedItemProperty().addListener(
                             (ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
