@@ -17,7 +17,7 @@ public class GameTimer {
     private TimerTask task;
     private int secondsPassed;
     private Text timerTekst = new Text();
-    private AudioClip secondeGeluid = new AudioClip(this.getClass().getResource("/ticking.wav").toString());
+    private AudioClip geluid = new AudioClip(this.getClass().getResource("/NBA_timer.wav").toString());
 
     public GameTimer(){
         timerTekst.setWrappingWidth(300);
@@ -31,7 +31,6 @@ public class GameTimer {
             public void run() {
                 secondsPassed++;
                 timerTekst.setText("Timer: "+secondsPassed+" Seconden");
-                secondeGeluid.play();
             }
         };
     }
@@ -40,9 +39,13 @@ public class GameTimer {
     }
 
     public void stop() {
-        secondeGeluid.stop();
+        geluid.stop();
         gameTimer.cancel();
         task.cancel();
+    }
+
+    public AudioClip getGeluid() {
+        return geluid;
     }
 
     public Text getTimerTekst() {

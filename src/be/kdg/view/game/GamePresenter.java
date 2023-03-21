@@ -13,9 +13,11 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
 
 import java.util.Optional;
+import java.util.Random;
 
 /**
  * Sami Filjak
@@ -27,6 +29,8 @@ public class GamePresenter {
     private HighScoreView highScoreView;
     private HighScorePresenter highScorePresenter;
     private HighScore highScore;
+    private Random random = new Random();
+    private AudioClip punt;
 
     private Boolean disableKeys = false;
 
@@ -55,11 +59,13 @@ public class GamePresenter {
                         model.getSpeelveld().getKaarten().get(gameView.getKaartMap().get(currentImage)).setIsOmgedraaid(true);
                         currentImage.setImage(model.getSpeelveld().getKaarten().get(gameView.getKaartMap().get(currentImage)).getVoorkantKaart());
                         new Thread(() -> {
+                            gameView.getGametimer().getGeluid().play();
                             if (model.getKeuze1() == 0) {
                                 model.setKeuze1(gameView.getKaartMap().get(currentImage) + 1);
                             } else {
                                 model.setKeuze2(gameView.getKaartMap().get(currentImage) + 1);
                                 if (!model.paarGevonden()) {
+                                    gameView.getGametimer().getGeluid().stop();
                                     model.switchPlayer();
                                     Platform.runLater(() -> {
                                         gameView.setCurrentPlayerLabel(model.getCurrentPlayer().getNaam());
@@ -81,6 +87,9 @@ public class GamePresenter {
                                     gameView.getGridPane().setDisable(false);
                                     disableKeys = false;
                                 } else {
+                                    gameView.getGametimer().getGeluid().stop();
+                                    punt = new AudioClip(this.getClass().getResource("gewonnensound/" + (random.nextInt(7)+1) + ".mp3").toString());
+                                    punt.play();
                                     gameView.getGridPane().setDisable(true);
                                     disableKeys = true;
                                     Platform.runLater(() -> {

@@ -56,7 +56,7 @@ public class GameView extends HBox {
     public void initialiseNodes() {
         startView = new StartView();
         startPresenter = new StartPresenter(startView);
-        this.achtergrond = new Image("/Background.jpg", true);
+        this.achtergrond = new Image("/mainmenubackground.png", true);
         this.setBackground(new Background(new BackgroundImage(achtergrond, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
         kaartMap = new HashMap<>();
         HBox hbox = new HBox();
@@ -87,8 +87,8 @@ public class GameView extends HBox {
             scoreLabel[i].setFont(Font.font("Verdana", 20));
             scoreLabel[i].setTextFill(Paint.valueOf("#ffffff"));
             avatarLabel[i] = new ImageView();
-            avatarLabel[i].setFitHeight(100);
-            avatarLabel[i].setFitWidth(100);
+            avatarLabel[i].setFitHeight(200);
+            avatarLabel[i].setFitWidth(200);
             scoreboardPanel.getChildren().addAll(nameLabel[i], scoreLabel[i], avatarLabel[i]);
         }
         for (int i = 0; i < players.size(); i++) {
@@ -96,8 +96,8 @@ public class GameView extends HBox {
             scoreLabel[i].setText("Geraden kaarten: " + Integer.toString(players.get(i).getScore()));
             Image avatarImage = players.get(i).getAvatar().getImage();
             ImageView avatarView = new ImageView(avatarImage);
-            avatarView.setFitHeight(30);
-            avatarView.setFitWidth(30);
+            avatarView.setFitHeight(200);
+            avatarView.setFitWidth(200);
             avatarLabel[i].setImage(avatarImage);
         }
     }
@@ -133,8 +133,8 @@ public class GameView extends HBox {
         setMaxWidth(Double.MAX_VALUE);
         for (int a = 1; a <= model.getSpeelveld().getKaarten().size(); a++) {
             ImageView imagevwAchterkant = new ImageView(model.getSpeelveld().getKaarten().get(a - 1).getAchterkantKaart());
-            imagevwAchterkant.setFitHeight(100);
-            imagevwAchterkant.setFitWidth(100);
+            imagevwAchterkant.setFitHeight(200);
+            imagevwAchterkant.setFitWidth(200);
             kaartMap.put(imagevwAchterkant, a - 1);
             gridPane.add(imagevwAchterkant, kolom, rij);
             kolom = kolom + 1;
@@ -143,15 +143,15 @@ public class GameView extends HBox {
                 kolom = 0;
             }
         }
-        gridPane.setHgap(10);
-        gridPane.setVgap(10);
         gridPane.setAlignment(Pos.CENTER);
         diceImage.setFitHeight(200);
         diceImage.setFitWidth(200);
         rollButton.setMnemonicParsing(false);
         rollButton.setPrefSize(50, 30);
         updateScoreboard(model.getPlayers());
+        vBox.setSpacing(250);
         vBox.getChildren().addAll(gametimer.getTimerTekst(), currentPlayerLabel,diceImage, rollButton);
+        setSpacing(300);
         getChildren().addAll(scoreboardPanel,gridPane,vBox);
     }
 
@@ -159,16 +159,10 @@ public class GameView extends HBox {
         return kaartMap;
     }
 
-    public Button getRollButton() {
-        return rollButton;
-    }
+    public Button getRollButton() {return rollButton;}
 
     public GameTimer getGametimer() {
         return gametimer;
-    }
-
-    public ImageView getDiceImage() {
-        return diceImage;
     }
 
     public Spel getModel() {

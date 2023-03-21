@@ -24,7 +24,7 @@ public class MainMenuView extends VBox {
     public MainMenuView() {
         this.initialiseNodes();
         this.layoutNodes();
-
+//        getStylesheets().add(getClass().getResource("/MainMenuCSS.css").toExternalForm());
     }
 
     private void initialiseNodes() {
@@ -52,20 +52,22 @@ public class MainMenuView extends VBox {
         this.setBackground(new Background(new BackgroundImage(achtergrond, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
         ImageView imageView = new ImageView(memory);
         imageView.setX(400);
-        imageView.setY(150);
-        imageView.setFitWidth(400);
-        imageView.setFitHeight(260);
+        imageView.setY(0);
+        imageView.setFitWidth(800);
+        imageView.setFitHeight(520);
         setSpacing(10);
-        start.setPrefSize(160, 40);
+//        start.setPrefSize(160, 40);
         start.getStyleClass().add("button");
-        highScore.setPrefSize(160,40);
+//        highScore.setPrefSize(160,40);
         highScore.getStyleClass().add("button");
-        exit.setPrefSize(160,40);
+//        exit.setPrefSize(160,40);
+        vBox.setSpacing(10);
         exit.getStyleClass().add("button");
-        setAlignment(Pos.CENTER);
+        setAlignment(Pos.TOP_CENTER);
         getChildren().add(imageView);
-        vBox.getChildren().addAll(start, highScore, exit);
         vBox.getStyleClass().add("btn-group");
+        vBox.setAlignment(Pos.CENTER);
+        vBox.getChildren().addAll(start, highScore, exit);
         getChildren().add(vBox);
     }
 }

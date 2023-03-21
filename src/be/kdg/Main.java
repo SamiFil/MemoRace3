@@ -16,7 +16,7 @@ public class Main extends Application {
         MainMenuView mainmenuview = new MainMenuView();
         MainMenuPresenter mainmenupresenter = new MainMenuPresenter(mainmenuview);
         Scene scene = new Scene(mainmenuview);
-        scene.getStylesheets().add(getClass().getResource("MainMenuCSS.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("/MainMenuCSS.css").toExternalForm());
         primaryStage.setScene(scene);
         primaryStage.setHeight(1920);
         primaryStage.setWidth(1980);

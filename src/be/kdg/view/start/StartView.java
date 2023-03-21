@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
@@ -19,11 +20,11 @@ import java.util.List;
  */
 public class StartView extends VBox {
     private Button addPlayers;
-    private Label naam;
     private Button start;
     private HBox hBox;
     public List<Player> playerNames;
     private Image achtergrond;
+    private Image vulNamen;
 
     public StartView() {
         this.initialiseNodes();
@@ -37,31 +38,31 @@ public class StartView extends VBox {
 
     private void initialiseNodes() {
         addPlayers = new Button("Add Players");
-        naam = new Label("Voer namen in: ");
         start = new Button("Start");
         hBox = new HBox();
         playerNames = new ArrayList<Player>();
-        this.achtergrond = new Image("/mainmenu.jpg", true);
+        this.achtergrond = new Image("/mainmenubackground.png", true);
+        vulNamen = new Image("vul_namen_in.png");
     }
     private void layoutNodes() {
         this.setBackground(new Background(new BackgroundImage(achtergrond, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
         setSpacing(10);
-        addPlayers.setPrefSize(100, 30);
-        start.setPrefSize(100,30);
-        naam.setFont(Font.font("Verdana", 31));
-        naam.setTextFill((Paint.valueOf("#ffffff")));
+        ImageView imageView = new ImageView(vulNamen);
+        imageView.setX(400);
+        imageView.setY(150);
+        imageView.setFitWidth(800);
+        imageView.setFitHeight(520);
+        getChildren().add(imageView);
+        addPlayers.setPrefSize(150, 50);
+        start.setPrefSize(150,50);
         hBox.setAlignment(Pos.CENTER);
         hBox.getChildren().addAll(addPlayers, start);
-        setAlignment(Pos.CENTER);
-        getChildren().addAll(naam, hBox);
+        setAlignment(Pos.TOP_CENTER);
+        getChildren().add(hBox);
     }
 
     public Button getAddPlayers() {
         return addPlayers;
-    }
-
-    public Label getNaam() {
-        return naam;
     }
 
     public Button getStart() {

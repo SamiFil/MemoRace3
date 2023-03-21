@@ -129,10 +129,10 @@ public class StartPresenter {
                         GameView gameView = new GameView(model);
                         GamePresenter gamePresenter = new GamePresenter(model, gameView);
                         Stage gameStage = new Stage();
-                        Scene gameScene = new Scene(gameView, 1920, 1080);
-//                        Scene gameScene = new Scene(gameView, 800, 600);
+//                        Scene gameScene = new Scene(gameView, 1920, 1080);
+                        Scene gameScene = new Scene(gameView, 800, 600);
                         gameStage.setScene(gameScene);
-                        gameStage.setFullScreen(true);
+//                        gameStage.setFullScreen(true);
                         gameView.getScene().getWindow().sizeToScene();
                         gameView.getScene().getWindow().centerOnScreen();
                         gameScene.setRoot(gameView);
