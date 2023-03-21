@@ -19,6 +19,7 @@ public class MainMenuView extends VBox {
     private Image achtergrond;
     private Button exit;
     private Image memory;
+    private VBox vBox;
 
     public MainMenuView() {
         this.initialiseNodes();
@@ -31,6 +32,7 @@ public class MainMenuView extends VBox {
         highScore = new Button("Highscore");
         exit = new Button("Exit");
         memory = new Image("memorace_logo.png");
+        vBox = new VBox();
     }
 
     public Button getStart() {
@@ -55,10 +57,15 @@ public class MainMenuView extends VBox {
         imageView.setFitHeight(260);
         setSpacing(10);
         start.setPrefSize(160, 40);
+        start.getStyleClass().add("button");
         highScore.setPrefSize(160,40);
+        highScore.getStyleClass().add("button");
         exit.setPrefSize(160,40);
+        exit.getStyleClass().add("button");
         setAlignment(Pos.CENTER);
         getChildren().add(imageView);
-        getChildren().addAll(start, highScore, exit);
+        vBox.getChildren().addAll(start, highScore, exit);
+        vBox.getStyleClass().add("btn-group");
+        getChildren().add(vBox);
     }
 }
