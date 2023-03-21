@@ -35,6 +35,7 @@ public class GamePresenter {
         this.gameView = gameView;
         this.addEventHandlers();
     }
+
     public void addEventHandlers() {
         gameView.updateScoreboard(model.getPlayers());
         gameView.setCurrentPlayerLabel(model.getCurrentPlayer().getNaam());
