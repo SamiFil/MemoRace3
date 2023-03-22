@@ -1,6 +1,7 @@
 package be.kdg.model.board;
 
 import javafx.scene.media.AudioClip;
+import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
@@ -21,9 +22,9 @@ public class GameTimer {
 
     public GameTimer(){
         timerTekst.setWrappingWidth(300);
-        timerTekst.setFont(Font.font("Verdana",25));
         timerTekst.setText("Timer: "+secondsPassed+" Seconden");
-        timerTekst.setFill(Paint.valueOf("WHITE"));
+        timerTekst.setFill(Color.WHITE);
+        timerTekst.setId("playerLabel");
         secondsPassed=0;
         gameTimer = new Timer();
         task = new TimerTask() {

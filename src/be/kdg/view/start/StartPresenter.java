@@ -52,7 +52,7 @@ public class StartPresenter {
                 dialog.setTitle("Aantal spelers");
                 dialog.setHeaderText("Hoeveel spelers zullen meespelen?");
                 dialog.setContentText("Gelieve een getal in te voeren tussen 1 en 4.");
-
+                dialog.initOwner(startView.getScene().getWindow());
                 Optional<String> resultaat;
                 boolean validInput = false;
                 int aantalPlayers = 0;
@@ -132,6 +132,7 @@ public class StartPresenter {
                         GamePresenter gamePresenter = new GamePresenter(model, gameView);
                         Stage gameStage = new Stage();
                         Scene gameScene = new Scene(gameView, 1920, 1080);
+                        gameScene.getStylesheets().add(getClass().getResource("/MainMenuCSS.css").toExternalForm());
 //                        Scene gameScene = new Scene(gameView, 800, 600);
                         gameStage.setScene(gameScene);
                         gameStage.setFullScreen(true);

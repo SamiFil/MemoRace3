@@ -10,6 +10,20 @@
     -fx-border-color: #FF4294;
     -fx-border-radius: 3px;
 }
+
+#button:hover {
+    -fx-background-color: white;
+    -fx-font-family: 'Luckiest Guy', cursive;
+    -fx-text-fill: lightpink;
+    -fx-padding: 10px 80px;
+    -fx-border-color: white;
+    -fx-border-width: 3px;
+    -fx-border-radius: 3px;
+    -fx-effect: dropshadow( gaussian , rgba(255,255,255,1) , 0,0,0,2 );
+    -fx-background-radius: 5px;
+    -fx-margin-top: 40px;
+}
+
 #button2 {
     -fx-text-alignment: center;
     -fx-padding: 10px 80px;
@@ -23,9 +37,19 @@
     -fx-border-radius: 3px;
 }
 
-.btn-group {
-    -fx-margin-top: 80px;
+#button2:hover {
+    -fx-background-color: white;
+    -fx-font-family: 'Luckiest Guy', cursive;
+    -fx-text-fill: lightpink;
+    -fx-padding: 10px 80px;
+    -fx-border-color: white;
+    -fx-border-width: 3px;
+    -fx-border-radius: 3px;
+    -fx-effect: dropshadow( gaussian , rgba(255,255,255,1) , 0,0,0,2 );
+    -fx-background-radius: 5px;
+    -fx-margin-top: 40px;
 }
+
 
 #textField {
     -fx-prompt-text-fill: #fff;
@@ -97,4 +121,53 @@
     -fx-border-width: 3px;
     -fx-border-color: #FF4294;
     -fx-border-radius: 3px;
+}
+
+#playerLabel {
+    -fx-text-fill: #ffffff;
+    -fx-font-family: 'Luckiest Guy', cursive;
+    -fx-font-size: 25;
+}
+
+#playerLabel2 {
+    -fx-text-fill: #ffffff;
+    -fx-font-family: 'Luckiest Guy', cursive;
+    -fx-font-size: 21;
+}
+
+.dialog-pane {
+    -fx-font-size: 14px;
+    -fx-text-fill: #000;
+    -fx-background-color: transparent;
+}
+
+.dialog-pane .label {
+    -fx-text-fill: #000
+}
+
+.dialog-pane .text-field {
+    -fx-background-color: transparent;
+    -fx-text-fill: #ffffff;
+    -fx-border-color: #FF4294;
+    -fx-border-width: 2px;
+    -fx-border-radius: 3px;
+    -fx-prompt-text-fill: #ffffff;
+}
+
+.dialog-pane .text-field:focused {
+    -fx-border-color: #FF2B6B;
+    -fx-background-color: #FF4294;
+}
+
+.dialog-pane .button {
+    -fx-background-color: #FF4294;
+    -fx-text-fill: #ffffff;
+    -fx-border-color: #FF4294;
+    -fx-border-width: 2px;
+    -fx-border-radius: 3px;
+}
+
+.dialog-pane .button:hover {
+    -fx-background-color: #FF2B6B;
+    -fx-border-color: #FF2B6B;
 }

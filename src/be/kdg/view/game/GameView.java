@@ -81,11 +81,11 @@ public class GameView extends HBox {
         avatarLabel = new ImageView[players.size()];
         for (int i = 0; i < players.size(); i++) {
             nameLabel[i] = new Label("");
-            nameLabel[i].setFont(Font.font("Verdana", 20));
             nameLabel[i].setTextFill(Paint.valueOf("#ffffff"));
+            nameLabel[i].setId("playerLabel2");
             scoreLabel[i] = new Label("");
-            scoreLabel[i].setFont(Font.font("Verdana", 20));
             scoreLabel[i].setTextFill(Paint.valueOf("#ffffff"));
+            scoreLabel[i].setId("playerLabel2");
             avatarLabel[i] = new ImageView();
             avatarLabel[i].setFitHeight(200);
             avatarLabel[i].setFitWidth(200);
@@ -103,8 +103,7 @@ public class GameView extends HBox {
     }
     public void setCurrentPlayerLabel(String playerName) {
         currentPlayerLabel.setText("Current Player: " + playerName);
-        currentPlayerLabel.setFont(Font.font("Verdana", 20));
-        currentPlayerLabel.setTextFill(Paint.valueOf("#ffffff"));
+        currentPlayerLabel.setId("playerLabel");
     }
 
     public void roll(ActionEvent actionEvent) {
@@ -143,11 +142,12 @@ public class GameView extends HBox {
                 kolom = 0;
             }
         }
+        gridPane.setId("gridpane");
         gridPane.setAlignment(Pos.CENTER);
         diceImage.setFitHeight(200);
         diceImage.setFitWidth(200);
         rollButton.setMnemonicParsing(false);
-        rollButton.setPrefSize(50, 30);
+        rollButton.setId("button");
         updateScoreboard(model.getPlayers());
         vBox.setSpacing(250);
         vBox.getChildren().addAll(gametimer.getTimerTekst(), currentPlayerLabel,diceImage, rollButton);
