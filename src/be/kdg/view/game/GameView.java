@@ -66,7 +66,6 @@ public class GameView extends HBox {
         scoreboardPanel = new VBox();
         gametimer = new GameTimer();
         model = new Spel();
-        gametimer.start();
         currentPlayerLabel = new Label();
         gridPane = new GridPane();
         vBox = new VBox();
@@ -142,6 +141,7 @@ public class GameView extends HBox {
                 kolom = 0;
             }
         }
+        gametimer.setId("playerLabel");
         gridPane.setId("gridpane");
         gridPane.setAlignment(Pos.CENTER);
         diceImage.setFitHeight(200);
@@ -150,7 +150,7 @@ public class GameView extends HBox {
         rollButton.setId("button");
         updateScoreboard(model.getPlayers());
         vBox.setSpacing(250);
-        vBox.getChildren().addAll(gametimer.getTimerTekst(), currentPlayerLabel,diceImage, rollButton);
+        vBox.getChildren().addAll(gametimer, currentPlayerLabel,diceImage, rollButton);
         setSpacing(300);
         getChildren().addAll(scoreboardPanel,gridPane,vBox);
     }
