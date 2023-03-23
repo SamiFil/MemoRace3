@@ -107,7 +107,7 @@ public class GamePresenter {
                                     Platform.runLater(() -> {
                                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
                                     alert.setHeaderText(null);
-                                    alert.setContentText("Gefeliciteerd, jullie hebben alle kaarten gevonden in " + gameView.getGametimer().getSecondsPassed() + " seconden!");
+                                    alert.setContentText("Gefeliciteerd, jullie hebben alle kaarten gevonden in " + gameView.getGametimer().getSeconden() + " seconden!");
                                     ButtonType stop = new ButtonType("Exit");
                                     alert.getButtonTypes().setAll(stop);
                                     Optional<ButtonType> result = alert.showAndWait();

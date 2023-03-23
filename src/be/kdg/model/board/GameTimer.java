@@ -20,31 +20,14 @@ import java.util.TimerTask;
  * 16/02/2023
  */
 public class GameTimer extends Group {
-    private Timer gameTimer;
-    private TimerTask task;
-    private int secondsPassed;
-    private Text timerTekst = new Text();
     private AudioClip geluid = new AudioClip(this.getClass().getResource("/NBA_timer.wav").toString());
     private final Timeline timeline;
     private final Label timerLabel;
     private final long startTime;
 
     public GameTimer(){
-//        timerTekst.setWrappingWidth(300);
-//        timerTekst.setText("Timer: "+secondsPassed+" Seconden");
-//        timerTekst.setFill(Color.WHITE);
-//        timerTekst.setId("timerTekst");
-//        secondsPassed=0;
-//        gameTimer = new Timer();
-//        task = new TimerTask() {
-//            @Override
-//            public void run() {
-//                secondsPassed++;
-//                timerTekst.setText("Timer: "+secondsPassed+" Seconden");
-//            }
-//        };
         timerLabel = new Label("00:00:00");
-        timerLabel.setId("");
+        timerLabel.setId("playerLabel");
         setId("stopwatch-container");
         timerLabel.getStyleClass().addAll("display", "milliseconds");
         getChildren().add(timerLabel);
@@ -61,30 +44,26 @@ public class GameTimer extends Group {
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
     }
-    public void start(){
-        gameTimer.scheduleAtFixedRate(task,1000,1000);
+
+    public Label getTimerLabel() {
+        return timerLabel;
     }
 
+    public int getSeconden() {
+        String timerLabelText = timerLabel.getText();
+        String[] timerLabelParts = timerLabelText.split(":");
+        int seconds = Integer.parseInt(timerLabelParts[1]);
+        return seconds;
+    }
     public void stop() {
         geluid.stop();
-        gameTimer.cancel();
-        task.cancel();
+        timeline.stop();
     }
 
     public AudioClip getGeluid() {
         return geluid;
     }
 
-    public Text getTimerTekst() {
-        return timerTekst;
-    }
 
-    public Timer getGameTimer() {
-        return gameTimer;
-    }
-
-    public int getSecondsPassed() {
-        return secondsPassed;
-    }
 }
 
