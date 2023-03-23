@@ -1,19 +1,12 @@
 package be.kdg.model.board;
-
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.scene.Group;
 import javafx.scene.control.Label;
 import javafx.scene.media.AudioClip;
-import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
-import javafx.scene.text.Font;
-import javafx.scene.text.Text;
 import javafx.util.Duration;
 
-import java.util.Timer;
-import java.util.TimerTask;
 
 /**
  * Sami Filjak
@@ -45,15 +38,11 @@ public class GameTimer extends Group {
         timeline.play();
     }
 
-    public Label getTimerLabel() {
-        return timerLabel;
-    }
-
     public int getSeconden() {
         String timerLabelText = timerLabel.getText();
         String[] timerLabelParts = timerLabelText.split(":");
-        int seconds = Integer.parseInt(timerLabelParts[1]);
-        return seconds;
+        int seconde = Integer.parseInt(timerLabelParts[1]);
+        return seconde;
     }
     public void stop() {
         geluid.stop();

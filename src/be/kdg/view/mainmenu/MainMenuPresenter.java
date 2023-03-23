@@ -7,8 +7,6 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
-import java.io.IOException;
-
 /**
  * Sami Filjak
  * 30/01/2023

@@ -1,11 +1,6 @@
 package be.kdg.model.board;
-
 import be.kdg.model.player.Player;
-import be.kdg.view.game.GamePresenter;
-import be.kdg.view.game.GameView;
-import be.kdg.view.start.StartPresenter;
 import javafx.scene.control.Label;
-
 import java.util.ArrayList;
 
 /**
@@ -16,14 +11,12 @@ public class Spel {
     private ArrayList<Player> players;
     private int keuze1=0;
     private int keuze2=0;
-    private boolean spelBezig;
     private Speelveld speelveld;
     private ArrayList<Integer> geradenKaarten;
     private int mouseclicks=0;
     private int currentPlayerIndex;
 
     public Spel() {
-        this.spelBezig = true;
         this.speelveld = new Speelveld();
         this.geradenKaarten = new ArrayList<>();
         this.players = new ArrayList<Player>();
@@ -40,22 +33,13 @@ public class Spel {
             return false;
         }
     }
+    public void setCurrentPlayerLabel(String playerName, Label currentPlayerLabel) {
+        currentPlayerLabel.setText("Current Player: " + playerName);
+        currentPlayerLabel.setId("playerLabel");
+    }
 
     public ArrayList<Integer> getGeradenKaarten() {
         return geradenKaarten;
-    }
-
-    public boolean checkOfSpelBezig(){
-        if (geradenKaarten.size() == 16) {
-            spelBezig = false;
-        }
-        return spelBezig;
-    }
-
-
-
-    public int getMouseclicks() {
-        return mouseclicks;
     }
 
     public void setMouseclicks() {
@@ -78,10 +62,6 @@ public class Spel {
         return players;
     }
 
-    public int getKeuze2() {
-        return keuze2;
-    }
-
     public Speelveld getSpeelveld() {
         return speelveld;
     }
@@ -93,9 +73,6 @@ public class Spel {
         }
     }
 
-    public void setPlayers(ArrayList<Player> players) {
-        this.players = players;
-    }
 
     public Player getCurrentPlayer() {
         return players.get(currentPlayerIndex);

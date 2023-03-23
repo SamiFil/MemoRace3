@@ -19,7 +19,6 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -28,15 +27,8 @@ import java.util.Optional;
  */
 public class StartPresenter {
     private StartView startView = new StartView();
-    private TextField textField;
-    private Player player;
     Spel model = new Spel();
-    private Speelveld speelVeld;
-    ComboBox<String> avatarComboBox;
     List<String> avatarNames = Arrays.asList("Michael", "Kobe", "Stephen", "Lebron");
-    private final int   MAX_PLAYERS = 4;
-    private ComboBox<Integer> numberOfPlayersComboBox;
-
 
     public StartPresenter(StartView startView) {
         this.startView = startView;
@@ -93,7 +85,7 @@ public class StartPresenter {
                             });
                     textField.setOnAction(event -> {
                         String playerName = textField.getText();
-                        ImageView selectedAvatar = new ImageView("avatars/" + avatarComboBox.getValue().toString() + ".jpg");
+                        ImageView selectedAvatar = new ImageView("avatars/" + avatarComboBox.getValue() + ".jpg");
                         model.getPlayers().add(new Player(playerName, selectedAvatar));
                         textField.setEditable(false);
                     });
@@ -125,7 +117,6 @@ public class StartPresenter {
                         alert.setHeaderText(null);
                         alert.setContentText("Speler aantal moet minstens 2 zijn!");
                         alert.showAndWait();
-                        return;
                     }
                     else {
                         GameView gameView = new GameView(model);

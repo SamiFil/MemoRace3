@@ -3,9 +3,6 @@ package be.kdg.view.game;
 import be.kdg.model.board.GameTimer;
 import be.kdg.model.board.Spel;
 import be.kdg.model.player.Player;
-import be.kdg.view.start.StartPresenter;
-import be.kdg.view.start.StartView;
-import javafx.event.ActionEvent;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -13,11 +10,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Paint;
-import javafx.scene.text.Font;
-import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Random;
 
 /**
  * Sami Filjak
@@ -32,18 +26,13 @@ public class GameView extends HBox {
     private GridPane gridPane;
     private Button rollButton;
     private ImageView diceImage;
-    private Random random;
     private VBox scoreboardPanel;
     private VBox vBox;
     private Label[] nameLabel;
     private Label[] scoreLabel;
     private ImageView[] avatarLabel;
-    private StartPresenter startPresenter;
-    private StartView startView;
     private GameTimer gametimer;
     private Label currentPlayerLabel;
-    private GridPane outerGridPane;
-
 
 
     public GameView(Spel model) {
@@ -54,22 +43,17 @@ public class GameView extends HBox {
     }
 
     public void initialiseNodes() {
-        startView = new StartView();
-        startPresenter = new StartPresenter(startView);
         this.achtergrond = new Image("/mainmenubackground.png", true);
         this.setBackground(new Background(new BackgroundImage(achtergrond, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
         kaartMap = new HashMap<>();
-        HBox hbox = new HBox();
         rollButton = new Button("Roll");
         diceImage = new ImageView();
-        random = new Random();
         scoreboardPanel = new VBox();
         gametimer = new GameTimer();
         model = new Spel();
         currentPlayerLabel = new Label();
         gridPane = new GridPane();
         vBox = new VBox();
-        outerGridPane = new GridPane();
     }
 
     public void updateScoreboard(ArrayList<Player> players) {
@@ -92,7 +76,7 @@ public class GameView extends HBox {
         }
         for (int i = 0; i < players.size(); i++) {
             nameLabel[i].setText(players.get(i).getNaam());
-            scoreLabel[i].setText("Geraden kaarten: " + Integer.toString(players.get(i).getScore()));
+            scoreLabel[i].setText("Geraden kaarten: " + players.get(i).getScore());
             Image avatarImage = players.get(i).getAvatar().getImage();
             ImageView avatarView = new ImageView(avatarImage);
             avatarView.setFitHeight(200);
@@ -100,32 +84,6 @@ public class GameView extends HBox {
             avatarLabel[i].setImage(avatarImage);
         }
     }
-    public void setCurrentPlayerLabel(String playerName) {
-        currentPlayerLabel.setText("Current Player: " + playerName);
-        currentPlayerLabel.setId("playerLabel");
-    }
-
-    public void roll(ActionEvent actionEvent) {
-        rollButton.setDisable(true);
-        Thread thread = new Thread() {
-            public void run() {
-                try {
-                    for (int i = 0; i < 15; i++) {
-                        ImageView imageView = new ImageView("dice/" + (random.nextInt(6)+1) + ".jpg");
-                                diceImage.setImage(imageView.getImage());
-                        Thread.sleep(50);
-                    }
-                    rollButton.setDisable(false);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        };
-
-        thread.start();
-    }
-
-
 
     public void layoutNodes() {
         setMaxWidth(Double.MAX_VALUE);
@@ -171,5 +129,13 @@ public class GameView extends HBox {
 
     public GridPane getGridPane() {
         return gridPane;
+    }
+
+    public Label getCurrentPlayerLabel() {
+        return currentPlayerLabel;
+    }
+
+    public ImageView getDiceImage() {
+        return diceImage;
     }
 }

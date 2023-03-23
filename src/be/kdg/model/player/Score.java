@@ -13,14 +13,6 @@ public class Score {
         this.score = score;
     }
 
-    public String getPlayerName() {
-        return playerName;
-    }
-
-    public int getScore() {
-        return score;
-    }
-
 
     public String toString() {
         return playerName + ": " + score;

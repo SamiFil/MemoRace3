@@ -1,6 +1,7 @@
 package be.kdg.model.board;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 
 /**
@@ -21,13 +22,8 @@ public class Speelveld {
         Card rockets = new Card("Houston Rockets", "cards/6.png");
         Card lakers = new Card("LA Lakers", "cards/7.png");
         Card heat = new Card("Miami Heat", "cards/8.png");
-
         Card[] kaarten = {boston, nets, bulls, cavs, warriors, rockets, lakers, heat, boston, nets, bulls, cavs, warriors, rockets, lakers, heat};
-
-
-        for (int i = 0; i < 16; i++) {
-            cardArrayList.add(kaarten[i]);
-        }
+        cardArrayList.addAll(Arrays.asList(kaarten).subList(0, 16));
         Collections.shuffle(cardArrayList);
     }
     public ArrayList<Card> getKaarten() {

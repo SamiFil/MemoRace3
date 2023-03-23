@@ -28,9 +28,6 @@ public class Card {
         return achterkantKaart;
     }
 
-    public boolean isGevonden() {
-        return isGevonden;
-    }
 
     public void setIsOmgedraaid(Boolean omgedraaid) {
         isOmgedraaid = omgedraaid;
@@ -47,11 +44,6 @@ public class Card {
 
     public void setIsGevondenToTrue() {
         isGevonden = true;
-    }
-
-    public Boolean getOmgedraaid() {
-
-        return isOmgedraaid;
     }
 
 }

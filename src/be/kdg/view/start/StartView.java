@@ -3,14 +3,9 @@ package be.kdg.view.start;
 import be.kdg.model.player.Player;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Paint;
-import javafx.scene.text.Font;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,10 +25,6 @@ public class StartView extends VBox {
         this.initialiseNodes();
         this.layoutNodes();
 
-    }
-
-    public List<Player> getPlayerNames() {
-        return playerNames;
     }
 
     private void initialiseNodes() {

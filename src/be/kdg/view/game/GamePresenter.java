@@ -1,21 +1,16 @@
 package be.kdg.view.game;
 
+import be.kdg.model.board.Dice;
 import be.kdg.model.board.Spel;
-import be.kdg.model.player.HighScore;
-import be.kdg.view.highscore.HighScorePresenter;
-import be.kdg.view.highscore.HighScoreView;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.media.AudioClip;
-import javafx.stage.Stage;
-
 import java.util.Optional;
 import java.util.Random;
 
@@ -26,12 +21,10 @@ import java.util.Random;
 public class GamePresenter {
     private GameView gameView;
     private Spel model;
-    private HighScoreView highScoreView;
-    private HighScorePresenter highScorePresenter;
-    private HighScore highScore;
     private Random random = new Random();
     private AudioClip punt;
     private Boolean disableKeys = false;
+    private Dice dice = new Dice();
 
     public GamePresenter(Spel model, GameView gameView) {
         this.model = model;
@@ -41,11 +34,11 @@ public class GamePresenter {
 
     public void addEventHandlers() {
         gameView.updateScoreboard(model.getPlayers());
-        gameView.setCurrentPlayerLabel(model.getCurrentPlayer().getNaam());
+        model.setCurrentPlayerLabel(model.getCurrentPlayer().getNaam(), gameView.getCurrentPlayerLabel());
         gameView.getRollButton().setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                gameView.roll(actionEvent);
+                dice.roll(actionEvent, gameView.getRollButton(), gameView.getDiceImage());
             }
         });
         gameView.getGridPane().getChildren().forEach(item -> {
@@ -69,7 +62,7 @@ public class GamePresenter {
                                     punt.play();
                                     model.switchPlayer();
                                     Platform.runLater(() -> {
-                                        gameView.setCurrentPlayerLabel(model.getCurrentPlayer().getNaam());
+                                        model.setCurrentPlayerLabel(model.getCurrentPlayer().getNaam(), gameView.getCurrentPlayerLabel());
                                     });
                                     gameView.getGridPane().setDisable(true);
                                     disableKeys = true;
