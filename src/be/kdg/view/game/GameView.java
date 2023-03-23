@@ -33,6 +33,7 @@ public class GameView extends HBox {
     private ImageView[] avatarLabel;
     private GameTimer gametimer;
     private Label currentPlayerLabel;
+    private VBox vBox2;
 
 
     public GameView(Spel model) {
@@ -54,6 +55,7 @@ public class GameView extends HBox {
         currentPlayerLabel = new Label();
         gridPane = new GridPane();
         vBox = new VBox();
+        vBox2 = new VBox();
     }
 
     public void updateScoreboard(ArrayList<Player> players) {
@@ -107,8 +109,9 @@ public class GameView extends HBox {
         rollButton.setMnemonicParsing(false);
         rollButton.setId("button");
         updateScoreboard(model.getPlayers());
-        vBox.setSpacing(250);
-        vBox.getChildren().addAll(gametimer, currentPlayerLabel,diceImage, rollButton);
+        vBox.setSpacing(365);
+        vBox2.getChildren().addAll(diceImage, rollButton);
+        vBox.getChildren().addAll(gametimer, currentPlayerLabel,vBox2);
         setSpacing(300);
         getChildren().addAll(scoreboardPanel,gridPane,vBox);
     }

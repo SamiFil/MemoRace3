@@ -28,11 +28,11 @@ public class GameTimer extends Group {
         startTime = System.currentTimeMillis();
 
         timeline = new Timeline(new KeyFrame(Duration.millis(1), event -> {
-            long elapsedTime = System.currentTimeMillis() - startTime;
-            int minutes = (int) (elapsedTime / (60 * 1000));
-            int seconds = (int) ((elapsedTime / 1000) % 60);
-            int millis = (int) (elapsedTime % 1000);
-            timerLabel.setText(String.format("%02d:%02d:%02d", minutes, seconds, millis / 10));
+            long tijdVerstreken = System.currentTimeMillis() - startTime;
+            int minuten = (int) (tijdVerstreken / (60 * 1000));
+            int seconden = (int) ((tijdVerstreken / 1000) % 60);
+            int milliSeconden = (int) (tijdVerstreken % 1000);
+            timerLabel.setText(String.format("%02d:%02d:%02d", minuten, seconden, milliSeconden / 10));
         }));
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();

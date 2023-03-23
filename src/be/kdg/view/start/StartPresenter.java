@@ -61,7 +61,7 @@ public class StartPresenter {
                         } catch (NumberFormatException e) {
                             Alert alert = new Alert(Alert.AlertType.ERROR);
                             alert.setTitle("Ongeldig invoer");
-                            alert.setHeaderText("Gelieve een aantal te kiezen tussen 1 en 4 spelers.");
+                            alert.setHeaderText("Gelieve een aantal te kiezen tussen 2 en 4 spelers.");
                             alert.showAndWait();
                         }
                     } else {
