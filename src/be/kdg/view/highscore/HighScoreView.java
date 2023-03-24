@@ -19,6 +19,7 @@ public class HighScoreView extends VBox {
     private Button back;
     private Image achtergrond;
     private HighScore highScore = new HighScore("highscores.txt");
+    private VBox vBox;
 
     public HighScoreView() throws IOException {
         this.initialiseNodes();
@@ -27,15 +28,19 @@ public class HighScoreView extends VBox {
     private void initialiseNodes() {
         back = new Button("Back");
         achtergrond = new Image("mainmenubackground.png");
+        vBox = new VBox();
     }
 
     public Button getBack() {return back;}
 
     private void layoutNodes() throws IOException {
         highScore.loadHighScores();
-        highScore.showHighScores();
+        highScore.showHighScores(vBox);
         this.achtergrond = new Image("/mainmenubackground.png", true);
         this.setBackground(new Background(new BackgroundImage(achtergrond, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
         back.setPrefSize(50, 30);
-        setAlignment(Pos.TOP_CENTER);}
+        setAlignment(Pos.TOP_CENTER);
+        getChildren().addAll(vBox, back);
+    }
+
 }

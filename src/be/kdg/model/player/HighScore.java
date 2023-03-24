@@ -1,5 +1,9 @@
 package be.kdg.model.player;
 
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
+
+import javax.swing.text.TabExpander;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -31,7 +35,7 @@ public class HighScore {
         Scanner scanner = new Scanner(file);
         while (scanner.hasNextLine()) {
             String line = scanner.nextLine();
-            String[] parts = line.split(",");
+            String[] parts = line.split(": ");
             String playerName = parts[0];
             int scores = Integer.parseInt(parts[1]);
             Score score = new Score(playerName, scores);
@@ -41,10 +45,13 @@ public class HighScore {
         return highScores;
     }
 
-    public void showHighScores() throws IOException {
+    public void showHighScores(VBox vBox) throws IOException {
         List<Score> scores = loadHighScores();
         scores.sort(Comparator.comparingInt(Score::getScore).reversed());
         for (Score score : scores) {
+            Text text = new Text();
+            text.setText(score.getPlayerName() + ": " + score.getScore() + " cards won");
+            vBox.getChildren().add(text);
             System.out.println(score.getPlayerName() + ": " + score.getScore() + " cards won");
         }
     }
