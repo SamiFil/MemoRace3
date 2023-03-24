@@ -3,10 +3,7 @@ package be.kdg.model.player;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * Sami Filjak
@@ -42,5 +39,13 @@ public class HighScore {
         }
         scanner.close();
         return highScores;
+    }
+
+    public void showHighScores() throws IOException {
+        List<Score> scores = loadHighScores();
+        scores.sort(Comparator.comparingInt(Score::getScore).reversed());
+        for (Score score : scores) {
+            System.out.println(score.getPlayerName() + ": " + score.getScore() + " cards won");
+        }
     }
 }

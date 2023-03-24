@@ -97,6 +97,9 @@ public class GamePresenter {
                                 model.setKeuze1(0);
                                 if (model.getGeradenKaarten().size() == 16) {
                                     gameView.getGametimer().stop();
+                                    for (int i = 0; i < model.getPlayers().size(); i++) {
+
+                                    }
                                     Platform.runLater(() -> {
                                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
                                     alert.setHeaderText(null);
