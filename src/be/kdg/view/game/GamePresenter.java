@@ -2,6 +2,8 @@ package be.kdg.view.game;
 
 import be.kdg.model.board.Dice;
 import be.kdg.model.board.Spel;
+import be.kdg.model.player.HighScore;
+import be.kdg.model.player.Score;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -11,6 +13,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.media.AudioClip;
+
+import java.io.IOException;
 import java.util.Optional;
 import java.util.Random;
 
@@ -25,6 +29,7 @@ public class GamePresenter {
     private AudioClip punt;
     private Boolean disableKeys = false;
     private Dice dice = new Dice();
+    private HighScore highScore = new HighScore("highscores.txt");
 
     public GamePresenter(Spel model, GameView gameView) {
         this.model = model;
@@ -98,12 +103,17 @@ public class GamePresenter {
                                 if (model.getGeradenKaarten().size() == 16) {
                                     gameView.getGametimer().stop();
                                     for (int i = 0; i < model.getPlayers().size(); i++) {
-
+                                        Score score = new Score(model.getPlayers().get(i).getNaam(), model.getPlayers().get(i).getScore());
+                                        try {
+                                            highScore.saveHighScore(score);
+                                        } catch (IOException e) {
+                                            e.printStackTrace();
+                                        }
                                     }
                                     Platform.runLater(() -> {
                                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
                                     alert.setHeaderText(null);
-                                    alert.setContentText("Gefeliciteerd, jullie hebben alle kaarten gevonden in " + gameView.getGametimer().getSeconden() + " seconden!");
+                                    alert.setContentText("Gefeliciteerd, " + model.getCurrentPlayer() + " is de winnaar!");
                                     ButtonType stop = new ButtonType("Exit");
                                     alert.getButtonTypes().setAll(stop);
                                     Optional<ButtonType> result = alert.showAndWait();
