@@ -172,3 +172,8 @@
     -fx-border-color: #FF2B6B;
 }
 
+#label {
+    -fx-text-fill: #ffffff;
+    -fx-font-family: 'Luckiest Guy', cursive;
+    -fx-font-size: 25;
+}

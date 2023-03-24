@@ -1,9 +1,8 @@
 package be.kdg.model.player;
 
+import javafx.geometry.Pos;
+import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
-
-import javax.swing.text.TabExpander;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -14,7 +13,7 @@ import java.util.*;
  * 20/03/2023
  */
 public class HighScore {
-    private String fileName = "highscores.txt";
+    private String fileName;
 
     public HighScore(String fileName) {
     this.fileName = fileName;
@@ -49,10 +48,11 @@ public class HighScore {
         List<Score> scores = loadHighScores();
         scores.sort(Comparator.comparingInt(Score::getScore).reversed());
         for (Score score : scores) {
-            Text text = new Text();
+            Label text = new Label();
+            text.setId("label");
             text.setText(score.getPlayerName() + ": " + score.getScore() + " cards won");
+            vBox.setAlignment(Pos.CENTER);
             vBox.getChildren().add(text);
-            System.out.println(score.getPlayerName() + ": " + score.getScore() + " cards won");
         }
     }
 }

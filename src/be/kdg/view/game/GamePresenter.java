@@ -113,7 +113,7 @@ public class GamePresenter {
                                     Platform.runLater(() -> {
                                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
                                     alert.setHeaderText(null);
-                                    alert.setContentText("Gefeliciteerd, " + model.getCurrentPlayer() + " is de winnaar!");
+                                    alert.setContentText("Gefeliciteerd, " + model.getCurrentPlayer().getNaam() + " is de winnaar!");
                                     ButtonType stop = new ButtonType("Exit");
                                     alert.getButtonTypes().setAll(stop);
                                     Optional<ButtonType> result = alert.showAndWait();

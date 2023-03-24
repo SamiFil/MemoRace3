@@ -38,12 +38,6 @@ public class GameTimer extends Group {
         timeline.play();
     }
 
-    public int getSeconden() {
-        String timerLabelText = timerLabel.getText();
-        String[] timerLabelParts = timerLabelText.split(":");
-        int seconde = Integer.parseInt(timerLabelParts[1]);
-        return seconde;
-    }
     public void stop() {
         geluid.stop();
         timeline.stop();
