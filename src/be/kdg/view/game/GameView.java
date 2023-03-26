@@ -96,6 +96,7 @@ public class GameView extends HBox {
             kaartMap.put(imagevwAchterkant, a - 1);
             gridPane.add(imagevwAchterkant, kolom, rij);
             kolom = kolom + 1;
+            //rij-variabele verhogen en kolom-variabele terug op nul zetten wanneer de maximale rijlengte (4 kaarten per rij) is bereikt
             if (a % 4 == 0 && a <= model.getSpeelveld().getKaarten().size()) {
                 rij = rij + 1;
                 kolom = 0;

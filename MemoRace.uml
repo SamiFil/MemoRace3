@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>C:/Users/sami_/Downloads/MemoRace2backup/MemoRace2/MemoRace</OriginalElement>
+  <nodes>
+    <node x="585.8544117647054" y="402.0">be.kdg.model.board.Spel</node>
+    <node x="614.625" y="240.0">be.kdg.model.board.Speelveld</node>
+    <node x="718.75" y="827.0">be.kdg.view.start.StartPresenter</node>
+    <node x="1217.547120098039" y="348.0">be.kdg.Main</node>
+    <node x="21.5" y="1184.0">be.kdg.view.highscore.HighScoreView</node>
+    <node x="1149.1460784313722" y="0.0">be.kdg.view.mainmenu.MainMenuView</node>
+    <node x="202.375" y="849.0">be.kdg.model.board.Dice</node>
+    <node x="1091.4794117647054" y="240.0">be.kdg.view.mainmenu.MainMenuPresenter</node>
+    <node x="0.0" y="1400.0">be.kdg.view.highscore.HighScorePresenter</node>
+    <node x="422.3960784313721" y="435.0">be.kdg.model.board.GameTimer</node>
+    <node x="842.625" y="218.0">be.kdg.model.player.Player</node>
+    <node x="627.625" y="0.0">be.kdg.model.board.Card</node>
+    <node x="1205.547120098039" y="429.0">be.kdg.Launcher</node>
+    <node x="31.5" y="457.0">be.kdg.model.player.Score</node>
+    <node x="847.9794117647054" y="413.0">be.kdg.view.start.StartView</node>
+    <node x="39.5" y="849.0">be.kdg.model.player.HighScore</node>
+    <node x="361.375" y="684.0">be.kdg.view.game.GameView</node>
+    <node x="268.7078431372544" y="1162.0">be.kdg.view.game.GamePresenter</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="be.kdg.view.start.StartPresenter" target="be.kdg.model.board.Spel" relationship="CREATE">
+      <point x="-46.75" y="-50.0" />
+      <point x="765.5" y="662.0" />
+      <point x="807.25" y="662.0" />
+      <point x="807.25" y="632.0" />
+      <point x="639.5833333333333" y="632.0" />
+      <point x="639.5833333333333" y="622.0" />
+      <point x="625.3544117647054" y="622.0" />
+      <point x="-79.0" y="94.0" />
+    </edge>
+    <edge source="be.kdg.view.game.GamePresenter" target="be.kdg.view.game.GameView" relationship="TO_ONE">
+      <point x="0.0" y="-94.0" />
+      <point x="351.2078431372544" y="1101.0" />
+      <point x="429.375" y="1101.0" />
+      <point x="-68.0" y="193.0" />
+    </edge>
+    <edge source="be.kdg.view.game.GameView" target="be.kdg.model.board.Speelveld" relationship="DEPENDENCY">
+      <point x="-90.66666666666669" y="-193.0" />
+      <point x="406.7083333333333" y="662.0" />
+      <point x="375.11127450980337" y="662.0" />
+      <point x="375.11127450980337" y="350.0" />
+      <point x="649.2916666666666" y="350.0" />
+      <point x="-69.33333333333337" y="28.0" />
+    </edge>
+    <edge source="be.kdg.Main" target="be.kdg.view.mainmenu.MainMenuPresenter" relationship="CREATE">
+      <point x="0.0" y="-15.5" />
+      <point x="1259.547120098039" y="322.0" />
+      <point x="1199.4794117647054" y="322.0" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="be.kdg.view.game.GameView" target="be.kdg.model.board.GameTimer" relationship="TO_ONE">
+      <point x="90.66666666666663" y="-193.0" />
+      <point x="588.0416666666666" y="662.0" />
+      <point x="551.1946078431367" y="662.0" />
+      <point x="551.1946078431367" y="632.0" />
+      <point x="528.8960784313721" y="632.0" />
+      <point x="35.5" y="61.0" />
+    </edge>
+    <edge source="be.kdg.model.board.Speelveld" target="be.kdg.model.board.Card" relationship="CREATE">
+      <point x="52.0" y="-28.0" />
+      <point x="57.33333333333337" y="83.0" />
+    </edge>
+    <edge source="be.kdg.view.game.GamePresenter" target="be.kdg.model.board.Dice" relationship="TO_ONE">
+      <point x="0.0" y="-94.0" />
+      <point x="351.2078431372544" y="1101.0" />
+      <point x="306.625" y="1101.0" />
+      <point x="34.75" y="28.0" />
+    </edge>
+    <edge source="be.kdg.model.board.Spel" target="be.kdg.model.board.Card" relationship="DEPENDENCY">
+      <point x="-79.0" y="-94.0" />
+      <point x="625.3544117647054" y="380.0" />
+      <point x="604.125" y="380.0" />
+      <point x="604.125" y="197.0" />
+      <point x="491.41666666666663" y="197.0" />
+      <point x="491.41666666666663" y="187.0" />
+      <point x="656.2916666666666" y="187.0" />
+      <point x="-57.33333333333337" y="83.0" />
+    </edge>
+    <edge source="be.kdg.model.board.Spel" target="be.kdg.model.board.Speelveld" relationship="TO_ONE">
+      <point x="79.0" y="-94.0" />
+      <point x="783.3544117647054" y="380.0" />
+      <point x="941.9794117647054" y="380.0" />
+      <point x="941.9794117647054" y="350.0" />
+      <point x="787.9583333333333" y="350.0" />
+      <point x="69.33333333333326" y="28.0" />
+    </edge>
+    <edge source="be.kdg.view.game.GamePresenter" target="be.kdg.view.game.GameView" relationship="DEPENDENCY">
+      <point x="55.0" y="-94.0" />
+      <point x="406.2078431372544" y="1141.0" />
+      <point x="879.2362745098034" y="1141.0" />
+      <point x="879.2362745098034" y="1091.0" />
+      <point x="565.375" y="1091.0" />
+      <point x="68.0" y="193.0" />
+    </edge>
+    <edge source="be.kdg.Main" target="be.kdg.view.mainmenu.MainMenuView" relationship="CREATE">
+      <point x="0.0" y="-15.5" />
+      <point x="1259.547120098039" y="322.0" />
+      <point x="1317.9794117647054" y="322.0" />
+      <point x="1317.9794117647054" y="214.0" />
+      <point x="1274.9794117647054" y="214.0" />
+      <point x="50.33333333333326" y="94.0" />
+    </edge>
+    <edge source="be.kdg.view.highscore.HighScoreView" target="be.kdg.model.player.HighScore" relationship="TO_ONE">
+      <point x="-42.25" y="-72.0" />
+      <point x="63.75" y="1141.0" />
+      <point x="95.596568627451" y="1141.0" />
+      <point x="95.596568627451" y="1101.0" />
+      <point x="72.75" y="1101.0" />
+      <point x="-33.25" y="28.0" />
+    </edge>
+    <edge source="be.kdg.view.highscore.HighScorePresenter" target="be.kdg.view.highscore.HighScoreView" relationship="DEPENDENCY">
+      <point x="53.0" y="-28.0" />
+      <point x="159.0" y="1375.0" />
+      <point x="148.25" y="1375.0" />
+      <point x="42.25" y="72.0" />
+    </edge>
+    <edge source="be.kdg.view.game.GameView" target="be.kdg.model.player.Player" relationship="DEPENDENCY">
+      <point x="-90.66666666666669" y="-193.0" />
+      <point x="406.7083333333333" y="662.0" />
+      <point x="375.11127450980337" y="662.0" />
+      <point x="375.11127450980337" y="652.0" />
+      <point x="411.8960784313721" y="652.0" />
+      <point x="411.8960784313721" y="370.0" />
+      <point x="809.875" y="370.0" />
+      <point x="809.875" y="340.0" />
+      <point x="878.875" y="340.0" />
+      <point x="-36.25" y="50.0" />
+    </edge>
+    <edge source="be.kdg.view.mainmenu.MainMenuPresenter" target="be.kdg.view.mainmenu.MainMenuView" relationship="DEPENDENCY">
+      <point x="54.0" y="-28.0" />
+      <point x="1253.4794117647054" y="214.0" />
+      <point x="1224.6460784313722" y="214.0" />
+      <point x="0.0" y="94.0" />
+    </edge>
+    <edge source="be.kdg.view.start.StartView" target="be.kdg.model.player.Player" relationship="TO_MANY">
+      <point x="47.0" y="-83.0" />
+      <point x="988.9794117647054" y="350.0" />
+      <point x="982.846568627451" y="350.0" />
+      <point x="982.846568627451" y="340.0" />
+      <point x="951.375" y="340.0" />
+      <point x="36.25" y="50.0" />
+    </edge>
+    <edge source="be.kdg.view.game.GameView" target="be.kdg.model.board.Spel" relationship="CREATE">
+      <point x="0.0" y="-193.0" />
+      <point x="497.375" y="662.0" />
+      <point x="520.625" y="662.0" />
+      <point x="520.625" y="642.0" />
+      <point x="639.5833333333333" y="642.0" />
+      <point x="639.5833333333333" y="622.0" />
+      <point x="625.3544117647054" y="622.0" />
+      <point x="-79.0" y="94.0" />
+    </edge>
+    <edge source="be.kdg.view.game.GameView" target="be.kdg.model.board.Card" relationship="DEPENDENCY">
+      <point x="-90.66666666666669" y="-193.0" />
+      <point x="406.7083333333333" y="662.0" />
+      <point x="375.11127450980337" y="662.0" />
+      <point x="375.11127450980337" y="652.0" />
+      <point x="364.61127450980337" y="652.0" />
+      <point x="364.61127450980337" y="197.0" />
+      <point x="491.41666666666663" y="197.0" />
+      <point x="491.41666666666663" y="187.0" />
+      <point x="656.2916666666666" y="187.0" />
+      <point x="-57.33333333333337" y="83.0" />
+    </edge>
+    <edge source="be.kdg.view.mainmenu.MainMenuPresenter" target="be.kdg.view.mainmenu.MainMenuView" relationship="TO_ONE">
+      <point x="-54.0" y="-28.0" />
+      <point x="1145.4794117647054" y="214.0" />
+      <point x="1174.312745098039" y="214.0" />
+      <point x="-50.33333333333326" y="94.0" />
+    </edge>
+    <edge source="be.kdg.view.start.StartPresenter" target="be.kdg.view.start.StartView" relationship="CREATE">
+      <point x="-46.75" y="-50.0" />
+      <point x="765.5" y="662.0" />
+      <point x="807.25" y="662.0" />
+      <point x="807.25" y="652.0" />
+      <point x="894.9794117647054" y="652.0" />
+      <point x="-47.0" y="83.0" />
+    </edge>
+    <edge source="be.kdg.model.board.Spel" target="be.kdg.model.player.Player" relationship="DEPENDENCY">
+      <point x="-79.0" y="-94.0" />
+      <point x="625.3544117647054" y="380.0" />
+      <point x="604.125" y="380.0" />
+      <point x="604.125" y="360.0" />
+      <point x="809.875" y="360.0" />
+      <point x="809.875" y="340.0" />
+      <point x="878.875" y="340.0" />
+      <point x="-36.25" y="50.0" />
+    </edge>
+    <edge source="be.kdg.view.highscore.HighScorePresenter" target="be.kdg.view.highscore.HighScoreView" relationship="TO_ONE">
+      <point x="-53.0" y="-28.0" />
+      <point x="53.0" y="1375.0" />
+      <point x="63.75" y="1375.0" />
+      <point x="-42.25" y="72.0" />
+    </edge>
+    <edge source="be.kdg.view.game.GamePresenter" target="be.kdg.model.player.HighScore" relationship="TO_ONE">
+      <point x="0.0" y="-94.0" />
+      <point x="351.2078431372544" y="1111.0" />
+      <point x="95.596568627451" y="1111.0" />
+      <point x="95.596568627451" y="1101.0" />
+      <point x="72.75" y="1101.0" />
+      <point x="-33.25" y="28.0" />
+    </edge>
+    <edge source="be.kdg.view.game.GamePresenter" target="be.kdg.model.board.Dice" relationship="CREATE">
+      <point x="-55.0" y="-94.0" />
+      <point x="296.2078431372544" y="1141.0" />
+      <point x="259.971568627451" y="1141.0" />
+      <point x="259.971568627451" y="1121.0" />
+      <point x="237.125" y="1121.0" />
+      <point x="-34.75" y="28.0" />
+    </edge>
+    <edge source="be.kdg.Launcher" target="be.kdg.Main" relationship="DEPENDENCY">
+      <point x="0.0" y="-15.5" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="be.kdg.view.start.StartPresenter" target="be.kdg.model.board.Spel" relationship="TO_ONE">
+      <point x="46.75" y="-50.0" />
+      <point x="859.0" y="662.0" />
+      <point x="920.125" y="662.0" />
+      <point x="920.125" y="622.0" />
+      <point x="677.5" y="622.0" />
+      <point x="677.5" y="612.0" />
+      <point x="704.3544117647054" y="612.0" />
+      <point x="0.0" y="94.0" />
+    </edge>
+    <edge source="be.kdg.model.board.Spel" target="be.kdg.model.player.Player" relationship="TO_MANY">
+      <point x="79.0" y="-94.0" />
+      <point x="783.3544117647054" y="380.0" />
+      <point x="941.9794117647054" y="380.0" />
+      <point x="941.9794117647054" y="360.0" />
+      <point x="982.846568627451" y="360.0" />
+      <point x="982.846568627451" y="340.0" />
+      <point x="951.375" y="340.0" />
+      <point x="36.25" y="50.0" />
+    </edge>
+    <edge source="be.kdg.view.game.GamePresenter" target="be.kdg.model.board.Spel" relationship="DEPENDENCY">
+      <point x="55.0" y="-94.0" />
+      <point x="406.2078431372544" y="1141.0" />
+      <point x="879.2362745098034" y="1141.0" />
+      <point x="879.2362745098034" y="1091.0" />
+      <point x="954.0" y="1091.0" />
+      <point x="954.0" y="612.0" />
+      <point x="783.3544117647054" y="612.0" />
+      <point x="79.0" y="94.0" />
+    </edge>
+    <edge source="be.kdg.view.game.GamePresenter" target="be.kdg.model.player.HighScore" relationship="CREATE">
+      <point x="-55.0" y="-94.0" />
+      <point x="296.2078431372544" y="1141.0" />
+      <point x="259.971568627451" y="1141.0" />
+      <point x="259.971568627451" y="1131.0" />
+      <point x="105.596568627451" y="1131.0" />
+      <point x="105.596568627451" y="1101.0" />
+      <point x="139.25" y="1101.0" />
+      <point x="33.25" y="28.0" />
+    </edge>
+    <edge source="be.kdg.view.game.GamePresenter" target="be.kdg.model.player.Player" relationship="DEPENDENCY">
+      <point x="55.0" y="-94.0" />
+      <point x="406.2078431372544" y="1141.0" />
+      <point x="879.2362745098034" y="1141.0" />
+      <point x="879.2362745098034" y="1091.0" />
+      <point x="1046.4794117647054" y="1091.0" />
+      <point x="1046.4794117647054" y="370.0" />
+      <point x="809.875" y="370.0" />
+      <point x="809.875" y="340.0" />
+      <point x="878.875" y="340.0" />
+      <point x="-36.25" y="50.0" />
+    </edge>
+    <edge source="be.kdg.view.game.GamePresenter" target="be.kdg.model.board.Spel" relationship="TO_ONE">
+      <point x="0.0" y="-94.0" />
+      <point x="351.2078431372544" y="1101.0" />
+      <point x="643.875" y="1101.0" />
+      <point x="643.875" y="662.0" />
+      <point x="677.5" y="662.0" />
+      <point x="677.5" y="612.0" />
+      <point x="704.3544117647054" y="612.0" />
+      <point x="0.0" y="94.0" />
+    </edge>
+    <edge source="be.kdg.view.game.GameView" target="be.kdg.model.board.Spel" relationship="TO_ONE">
+      <point x="90.66666666666663" y="-193.0" />
+      <point x="588.0416666666666" y="662.0" />
+      <point x="551.1946078431367" y="662.0" />
+      <point x="551.1946078431367" y="652.0" />
+      <point x="677.5" y="652.0" />
+      <point x="677.5" y="612.0" />
+      <point x="704.3544117647054" y="612.0" />
+      <point x="0.0" y="94.0" />
+    </edge>
+    <edge source="be.kdg.view.start.StartView" target="be.kdg.model.player.Player" relationship="DEPENDENCY">
+      <point x="-47.0" y="-83.0" />
+      <point x="894.9794117647054" y="370.0" />
+      <point x="809.875" y="370.0" />
+      <point x="809.875" y="340.0" />
+      <point x="878.875" y="340.0" />
+      <point x="-36.25" y="50.0" />
+    </edge>
+    <edge source="be.kdg.model.board.Speelveld" target="be.kdg.model.board.Card" relationship="TO_MANY">
+      <point x="-52.0" y="-28.0" />
+      <point x="666.625" y="197.0" />
+      <point x="713.625" y="197.0" />
+      <point x="0.0" y="83.0" />
+    </edge>
+    <edge source="be.kdg.model.player.HighScore" target="be.kdg.model.player.Score" relationship="CREATE">
+      <point x="0.0" y="-28.0" />
+      <point x="0.0" y="39.0" />
+    </edge>
+    <edge source="be.kdg.view.highscore.HighScoreView" target="be.kdg.model.player.HighScore" relationship="CREATE">
+      <point x="42.25" y="-72.0" />
+      <point x="148.25" y="1141.0" />
+      <point x="105.596568627451" y="1141.0" />
+      <point x="105.596568627451" y="1101.0" />
+      <point x="139.25" y="1101.0" />
+      <point x="33.25" y="28.0" />
+    </edge>
+    <edge source="be.kdg.view.start.StartPresenter" target="be.kdg.view.start.StartView" relationship="TO_ONE">
+      <point x="46.75" y="-50.0" />
+      <point x="859.0" y="662.0" />
+      <point x="920.125" y="662.0" />
+      <point x="920.125" y="652.0" />
+      <point x="988.9794117647054" y="652.0" />
+      <point x="47.0" y="83.0" />
+    </edge>
+    <edge source="be.kdg.model.board.Spel" target="be.kdg.model.board.Speelveld" relationship="CREATE">
+      <point x="0.0" y="-94.0" />
+      <point x="704.3544117647054" y="350.0" />
+      <point x="718.625" y="350.0" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="be.kdg.view.game.GameView" target="be.kdg.model.board.GameTimer" relationship="CREATE">
+      <point x="0.0" y="-193.0" />
+      <point x="497.375" y="662.0" />
+      <point x="520.625" y="662.0" />
+      <point x="520.625" y="632.0" />
+      <point x="457.8960784313721" y="632.0" />
+      <point x="-35.5" y="61.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.4247967479674797" showDependencies="true" x="662.5" y="728.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

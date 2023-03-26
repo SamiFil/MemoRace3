@@ -16,6 +16,7 @@ public class Dice extends ImageView {
         Thread thread = new Thread() {
             public void run() {
                 try {
+                    //For-loopt 15 keer willekeurig door de dobbelsteen ImageView's en stopt daarna bij een willekeurige foto
                     for (int i = 0; i < 15; i++) {
                         ImageView imageView = new ImageView("dice/" + (random.nextInt(6)+1) + ".jpg");
                         diceImage.setImage(imageView.getImage());

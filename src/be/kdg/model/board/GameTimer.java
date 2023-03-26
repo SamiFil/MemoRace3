@@ -27,13 +27,16 @@ public class GameTimer extends Group {
 
         startTime = System.currentTimeMillis();
 
+        // Creeeren van een TimeLine object om de verstreken tijd weer te geven in minuten, seconden en milliseconden
         timeline = new Timeline(new KeyFrame(Duration.millis(1), event -> {
+            // Bepaalt de tijd die is verstreken sinds het begin van het spel
             long tijdVerstreken = System.currentTimeMillis() - startTime;
             int minuten = (int) (tijdVerstreken / (60 * 1000));
             int seconden = (int) ((tijdVerstreken / 1000) % 60);
             int milliSeconden = (int) (tijdVerstreken % 1000);
             timerLabel.setText(String.format("%02d:%02d:%02d", minuten, seconden, milliSeconden / 10));
         }));
+        // De cyclus van de timeline op oneindig zetten
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
     }

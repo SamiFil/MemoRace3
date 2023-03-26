@@ -22,8 +22,11 @@ public class Speelveld {
         Card rockets = new Card("Houston Rockets", "cards/6.png");
         Card lakers = new Card("LA Lakers", "cards/7.png");
         Card heat = new Card("Miami Heat", "cards/8.png");
+        // Alle Cards dubbel toeveogen aan 'kaarten'
         Card[] kaarten = {boston, nets, bulls, cavs, warriors, rockets, lakers, heat, boston, nets, bulls, cavs, warriors, rockets, lakers, heat};
+        // Voegt de eerste 16 kaarten van de kaartenlijst toe aan de cardArrayList
         cardArrayList.addAll(Arrays.asList(kaarten).subList(0, 16));
+        // Schudt de kaarten in de cardArrayList om ze willekeurig te rangschikken
         Collections.shuffle(cardArrayList);
     }
     public ArrayList<Card> getKaarten() {

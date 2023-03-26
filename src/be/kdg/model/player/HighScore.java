@@ -19,12 +19,14 @@ public class HighScore {
     this.fileName = fileName;
     }
 
+    //De gegeven score opslaan in highscores bestand
     public void saveHighScore(Score score) throws IOException {
         FileWriter writer = new FileWriter(fileName, true);
         writer.write(score.toString() + "\n");
         writer.close();
     }
 
+    //De highscores van het tekstbestand opladen
     public List<Score> loadHighScores() throws IOException {
         List<Score> highScores = new ArrayList<>();
         File file = new File(fileName);
@@ -34,6 +36,8 @@ public class HighScore {
         Scanner scanner = new Scanner(file);
         while (scanner.hasNextLine()) {
             String line = scanner.nextLine();
+
+            // Splitst de lijn op ": " om de spelersnaam en score te krijgen
             String[] parts = line.split(": ");
             String playerName = parts[0];
             int scores = Integer.parseInt(parts[1]);
@@ -44,13 +48,14 @@ public class HighScore {
         return highScores;
     }
 
+    // Laadt de highscores uit het tekstbestand en toont ze in de applicatie.
     public void showHighScores(VBox vBox) throws IOException {
         List<Score> scores = loadHighScores();
         scores.sort(Comparator.comparingInt(Score::getScore).reversed());
         for (Score score : scores) {
             Label text = new Label();
             text.setId("label");
-            text.setText(score.getPlayerName() + ": " + score.getScore() + " cards won");
+            text.setText(score.getPlayerName() + ": " + score.getScore() + " kaarten gewonnen");
             vBox.setAlignment(Pos.CENTER);
             vBox.getChildren().add(text);
         }
